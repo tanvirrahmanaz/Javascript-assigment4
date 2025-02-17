@@ -8,7 +8,7 @@ function validProposal(person1, person2) {
     }
     const ageDifference = Math.abs(person1.age - person2.age);
     
-    return ageDifference <= 7;
+    return (ageDifference <= 7);
 }
 
 console.log(validProposal({ name: "Rahul", gender: "male", age: 28 },

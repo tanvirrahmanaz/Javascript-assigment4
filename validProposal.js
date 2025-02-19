@@ -1,15 +1,18 @@
 function validProposal(person1, person2) {
     if (typeof person1 !== 'object' || typeof person2 !== 'object' || 
-        !person1 || !person2 || Array.isArray(person1) || Array.isArray(person2)) {
+        !person1 || !person2 || person1.constructor !== Object || person2.constructor !== Object) {
         return "Invalid";
     }
+    
     if (person1.gender === person2.gender) {
         return false;
     }
+    
     const ageDifference = Math.abs(person1.age - person2.age);
     
     return (ageDifference <= 7);
 }
+
 
 console.log(validProposal({ name: "Rahul", gender: "male", age: 28 },
     { name: "Joya", gender: "female", age: 21 }

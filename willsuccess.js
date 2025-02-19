@@ -1,13 +1,15 @@
 function willSuccess(marks) {
-    if (!Array.isArray(marks)) {
+    if (!marks || typeof marks !== "object" || typeof marks.length !== "number") {
         return "Invalid";
     }
-    
+
     if (marks.length === 0) {
         return false;
     }
+    
     let pass = 0;
     let fail = 0;
+    
     for (let mark of marks) {
         if (mark >= 50) {
             pass++;
@@ -16,8 +18,9 @@ function willSuccess(marks) {
         }
     }
     
-    return (pass>fail);
-} 
+    return pass > fail;
+}
+
 
 console.log(willSuccess([60, 70, 80, 40, 30]))
 console.log(willSuccess([48 , 48 , 92 , 100 ]))
